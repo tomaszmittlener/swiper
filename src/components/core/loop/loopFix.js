@@ -19,16 +19,18 @@ export default function () {
     const totalSlides = slides.length - (loopedSlides * 2);
     const totalSlidesItems = slides.length;
 
-    const TEST_PATTERN = totalSlides % slidesPerView === 0
+    // find test condition which covers all broken cases
+    const TEST_CONDITION = totalSlides % slidesPerView === 0
+    console.group('LOOP FIX (negative)');
 
-    console.group();
-
+    console.group('RECEIVED PROPERTIES');
     console.log('slidesPerGroup', slidesPerGroup);
     console.log('slidesPerView', slidesPerView);
     console.log('totalSlides', totalSlides);
     console.log('slides + duplicates', totalSlidesItems);
     console.log('loopedSlides', loopedSlides);
-    console.log('TEST_PATTERN', TEST_PATTERN);
+    console.log('activeIndex', activeIndex);
+    console.log('TEST_CONDITION', TEST_CONDITION);
     console.groupEnd()
 
 
@@ -39,10 +41,9 @@ export default function () {
     newIndex = (slides.length - (loopedSlides * 3)) + activeIndex;
     newIndex += loopedSlides;
 
-    console.group();
-
-    console.log('activeIndex', activeIndex);
+    console.group('MODIFIED PROPERTIES');
     console.log('newIndex', newIndex);
+    console.groupEnd()
 
     console.groupEnd()
 

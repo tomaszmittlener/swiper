@@ -10,6 +10,8 @@ export default function (speed = this.params.speed, runCallbacks = true, interna
     swiper.loopFix();
     // eslint-disable-next-line
     swiper._clientLeft = swiper.$wrapperEl[0].clientLeft;
+
+    return swiper.slideTo(swiper.activeIndex - params.slidesPerGroup, speed, runCallbacks, internal);
   }
   const translate = rtlTranslate ? swiper.translate : -swiper.translate;
   function normalize(val) {
@@ -27,5 +29,10 @@ export default function (speed = this.params.speed, runCallbacks = true, interna
     prevIndex = slidesGrid.indexOf(prevSnap);
     if (prevIndex < 0) prevIndex = swiper.activeIndex - 1;
   }
+
+  console.group('SLIDE PREV');
+  console.log('prevIndex', prevIndex);
+  console.groupEnd()
+
   return swiper.slideTo(prevIndex, speed, runCallbacks, internal);
 }

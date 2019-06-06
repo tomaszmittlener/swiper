@@ -13,6 +13,14 @@ export default function (index = 0, speed = this.params.speed, runCallbacks = tr
   }
 
   let snapIndex = Math.floor(slideIndex / params.slidesPerGroup);
+  console.group('SLIDE TO');
+  console.log('snapIndex (slideIndex / slidesPerGroup)', snapIndex);
+  console.log('snapIndex without math floor', slideIndex / params.slidesPerGroup);
+  console.log('slideIndex', slideIndex);
+  console.log('slidesPerGroup', params.slidesPerGroup);
+  console.groupEnd()
+
+
   if (snapIndex >= snapGrid.length) snapIndex = snapGrid.length - 1;
 
   if ((activeIndex || params.initialSlide || 0) === (previousIndex || 0) && runCallbacks) {

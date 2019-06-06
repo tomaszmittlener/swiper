@@ -39,7 +39,13 @@ export default function () {
 
     // OLD FIX
     newIndex = (slides.length - (loopedSlides * 3)) + activeIndex;
-    newIndex += loopedSlides;
+
+    if(totalSlides % slidesPerView === 0) {
+      newIndex += loopedSlides;
+    } else {
+      newIndex += loopedSlides + (slidesPerGroup / slidesPerView) + slidesPerGroup + slidesPerView
+    }
+
 
     console.group('MODIFIED PROPERTIES');
     console.log('newIndex', newIndex);

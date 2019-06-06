@@ -30,9 +30,5 @@ export default function (speed = this.params.speed, runCallbacks = true, interna
     if (prevIndex < 0) prevIndex = swiper.activeIndex - 1;
   }
 
-  console.group('SLIDE PREV');
-  console.log('prevIndex', prevIndex);
-  console.groupEnd()
-
   return swiper.slideTo(prevIndex, speed, runCallbacks, internal);
 }
